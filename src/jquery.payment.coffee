@@ -182,7 +182,7 @@ formatBackCardNumber = (e) ->
 
 # Format Expiry
 
-expirySeparator = " / "
+expirySeparator = "/"
 
 formatExpiry = (e) ->
   # Only format if input is a number

@@ -135,7 +135,7 @@ describe 'jquery.payment', ->
     it 'should fail if year or month is NaN', ->
       topic = $.payment.validateCardExpiry '12', NaN
       assert.equal topic, false
-    
+
     it 'should support year shorthand', ->
       assert.equal $.payment.validateCardExpiry('05', '20'), true
 
@@ -166,7 +166,7 @@ describe 'jquery.payment', ->
 
   describe 'Parsing an expiry value', ->
     it 'should parse string expiry', ->
-      topic = $.payment.cardExpiryVal('03 / 2025')
+      topic = $.payment.cardExpiryVal('03/2025')
       assert.deepEqual topic, month: 3, year: 2025
 
     it 'should support shorthand year', ->
@@ -244,7 +244,7 @@ describe 'jquery.payment', ->
       e.which = 52 # '4'
       $expiry.trigger(e)
 
-      assert.equal $expiry.val(), '04 / '
+      assert.equal $expiry.val(), '04/'
 
     it 'should format forward slash shorthand correctly', ->
       $expiry = $('<input type=text>').payment('formatCardExpiry')
@@ -254,7 +254,7 @@ describe 'jquery.payment', ->
       e.which = 47 # '/'
       $expiry.trigger(e)
 
-      assert.equal $expiry.val(), '01 / '
+      assert.equal $expiry.val(), '01/'
 
     it 'should only allow numbers', ->
       $expiry = $('<input type=text>').payment('formatCardExpiry')
