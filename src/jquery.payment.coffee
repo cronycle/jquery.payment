@@ -182,6 +182,8 @@ formatBackCardNumber = (e) ->
 
 # Format Expiry
 
+expirySeparator = " / "
+
 formatExpiry = (e) ->
   # Only format if input is a number
   digit = String.fromCharCode(e.which)
@@ -192,11 +194,11 @@ formatExpiry = (e) ->
 
   if /^\d$/.test(val) and val not in ['0', '1']
     e.preventDefault()
-    $target.val("0#{val} / ")
+    $target.val("0#{val}#{expirySeparator}")
 
   else if /^\d\d$/.test(val)
     e.preventDefault()
-    $target.val("#{val} / ")
+    $target.val("#{val}#{expirySeparator}")
 
 formatForwardExpiry = (e) ->
   digit = String.fromCharCode(e.which)
@@ -206,7 +208,7 @@ formatForwardExpiry = (e) ->
   val     = $target.val()
 
   if /^\d\d$/.test(val)
-    $target.val("#{val} / ")
+    $target.val("#{val}#{expirySeparator}")
 
 formatForwardSlash = (e) ->
   slash = String.fromCharCode(e.which)
@@ -216,7 +218,7 @@ formatForwardSlash = (e) ->
   val     = $target.val()
 
   if /^\d$/.test(val) and val isnt '0'
-    $target.val("0#{val} / ")
+    $target.val("0#{val}#{expirySeparator}")
 
 formatBackExpiry = (e) ->
   # If shift+backspace is pressed
